@@ -1,0 +1,10 @@
+FROM fedora:latest
+RUN dnf install -y httpd \
+    && dnf clean all
+RUN touch /var/www/html/my-info.html \
+    && echo "Assignment4" >> /var/www/html/my-info.html
+
+VOLUME ['data'] 
+
+EXPOSE 80
+CMD apachectl -D FOREGROUND
